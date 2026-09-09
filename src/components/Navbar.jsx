@@ -2,54 +2,51 @@ import MobileMenu from './MobileMenu'
 
 function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#f8f6f1]/90 backdrop-blur-md border-b border-black/10">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
+    <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 pt-3">
+      <div className="max-w-7xl mx-auto h-[68px] px-5 lg:px-7 flex items-center justify-between bg-[#f8f6f1]/90 backdrop-blur-xl border border-black/10 rounded-2xl shadow-sm">
 
         {/* Logo */}
-        <a href="#" className="text-2xl font-black tracking-tight">
+        <a
+          href="#"
+          className="text-2xl font-black tracking-[-0.04em] hover:text-orange-600 transition"
+        >
           Maria<span className="text-orange-600">.</span>
         </a>
 
-        {/* Navigation */}
-        <div className="hidden md:flex items-center gap-8">
-          <a
-            href="#about"
-            className="text-sm font-semibold hover:text-orange-600 transition"
-          >
-            About
-          </a>
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-1 bg-white/70 border border-black/5 rounded-full p-1">
 
-          <a
-            href="#skills"
-            className="text-sm font-semibold hover:text-orange-600 transition"
-          >
-            Skills
-          </a>
+          {[
+            ['About', '#about'],
+            ['Skills', '#skills'],
+            ['Projects', '#projects'],
+            ['Contact', '#contact'],
+          ].map(([label, link]) => (
+            <a
+              key={label}
+              href={link}
+              className="px-4 py-2 rounded-full text-sm font-bold text-gray-600 hover:text-black hover:bg-white transition"
+            >
+              {label}
+            </a>
+          ))}
 
-          <a
-            href="#projects"
-            className="text-sm font-semibold hover:text-orange-600 transition"
-          >
-            Projects
-          </a>
+        </div>
+
+        {/* Right */}
+        <div className="flex items-center gap-3">
 
           <a
             href="#contact"
-            className="text-sm font-semibold hover:text-orange-600 transition"
+            className="hidden sm:inline-flex items-center gap-2 bg-neutral-950 text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-orange-600 hover:-translate-y-0.5 transition duration-300"
           >
-            Contact
+            Let's Talk
+            <span>↗</span>
           </a>
+
+          <MobileMenu />
+
         </div>
-
-        <MobileMenu />
-
-        {/* Resume */}
-        <a
-          href="#contact"
-          className="hidden sm:inline-flex bg-black text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-orange-600 transition"
-        >
-          Let's Talk
-        </a>
 
       </div>
     </nav>
