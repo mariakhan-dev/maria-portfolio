@@ -15,6 +15,7 @@ function Projects() {
         'A connected attendance ecosystem for administrators, teachers and students, combining web portals with a native Android app for QR attendance, GPS validation and real-time monitoring.',
       showcase: '/projects/attendance/showcase/attendance-main.png',
       liveUrl: 'https://smart-attendance.lovestoblog.com/',
+      demoUrl: 'https://drive.google.com/file/d/1rZ4lSEaxiRHvSFmVdjo_xEitpVOwvspP/view?usp=drive_link',
       stack: ['PHP', 'MySQL', 'Kotlin', 'Android', 'QR', 'GPS'],
       highlights: ['3 Connected Systems', 'QR Attendance', 'GPS Validation', 'Real-Time Monitoring'],
       systems: [
@@ -94,6 +95,7 @@ function Projects() {
         'A modern commerce platform combining a complete customer storefront with administration, inventory, payments and an AI shopping assistant.',
       showcase: '/projects/novacart/showcase/novacart-main.png',
       liveUrl: 'https://novacart-ai.alwaysdata.net/',
+      demoUrl: 'https://drive.google.com/file/d/12aUIAlXDyVmilgQRupfjxPoGVEMduBeG/view?usp=drive_link',
       githubUrl: 'https://github.com/mariakhan-dev/novacart-ai',
       stack: ['Laravel', 'PHP', 'PostgreSQL', 'Stripe', 'Groq AI', 'Cloudinary', 'Tailwind'],
       highlights: ['Customer Storefront', 'Admin Dashboard', 'AI Assistant', 'Stripe Checkout'],
@@ -275,6 +277,8 @@ function Projects() {
 
                   <div className="mt-8 flex flex-col gap-6 border-t border-black/10 pt-7 lg:flex-row lg:items-center lg:justify-between">
                     <div className="flex flex-wrap gap-2">
+                    
+                    
                       {project.stack.map((tech) => (
                         <span
                           key={tech}
@@ -296,6 +300,16 @@ function Projects() {
                           Live Demo ↗
                         </a>
                       )}
+                      {project.demoUrl && (
+  <a
+    href={project.demoUrl}
+    target="_blank"
+    rel="noreferrer"
+    className="rounded-full bg-orange-600 px-5 py-3 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-orange-700"
+  >
+    Watch Demo ▶
+  </a>
+)}
 
                       <button
                         onClick={() => openProject(project)}
@@ -331,7 +345,16 @@ function Projects() {
                 >
                   {tech}
                 </span>
+                
               ))}
+              <a
+  href="https://drive.google.com/file/d/1-R6c2n8A2uapetfjMirK_3xLR3saQYPF/view?usp=drive_link"
+  target="_blank"
+  rel="noreferrer"
+  className="rounded-full bg-orange-600 px-5 py-2 text-xs font-black text-white transition hover:bg-orange-500"
+>
+  Watch Demo ▶
+</a>
             </div>
           </div>
         </div>
@@ -401,7 +424,18 @@ function Projects() {
                       >
                         Open Live Demo ↗
                       </a>
+                      
                     )}
+                    {project.demoUrl && (
+  <a
+    href={project.demoUrl}
+    target="_blank"
+    rel="noreferrer"
+    className="rounded-full bg-orange-600 px-5 py-3 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-orange-700"
+  >
+    Watch Demo ▶
+  </a>
+)}
 
                     {selectedProject.githubUrl && (
                       <a
