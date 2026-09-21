@@ -300,7 +300,7 @@ function Projects() {
                           Live Demo ↗
                         </a>
                       )}
-                      {project.demoUrl && (
+                   {project.demoUrl && (
   <a
     href={project.demoUrl}
     target="_blank"
@@ -310,7 +310,6 @@ function Projects() {
     Watch Demo ▶
   </a>
 )}
-
                       <button
                         onClick={() => openProject(project)}
                         className="cursor-pointer rounded-full bg-neutral-950 px-6 py-3 text-sm font-black text-white transition duration-300 hover:-translate-y-0.5 hover:bg-orange-600"
@@ -426,9 +425,9 @@ function Projects() {
                       </a>
                       
                     )}
-                    {project.demoUrl && (
+                    {selectedProject.demoUrl && (
   <a
-    href={project.demoUrl}
+    href={selectedProject.demoUrl}
     target="_blank"
     rel="noreferrer"
     className="rounded-full bg-orange-600 px-5 py-3 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-orange-700"
