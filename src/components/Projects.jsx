@@ -220,9 +220,16 @@ function Projects() {
                   <span className="project-category">{project.subtitle}</span>
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
-                  <div className="project-card-bottom">
-                    <span className="project-stack-preview">{project.stack.slice(0,3).join(' · ')}</span>
-                    <button onClick={() => openProject(project)} className="project-arrow" aria-label={`Explore ${project.title}`}>↗</button>
+                  <div className="project-card-actions">
+                    <div className="project-card-links">
+                      {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noreferrer" onClick={(event) => event.stopPropagation()}>Live Demo ↗</a>}
+                      {project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noreferrer" onClick={(event) => event.stopPropagation()}>Watch Demo ▶</a>}
+                      {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noreferrer" onClick={(event) => event.stopPropagation()}>GitHub ↗</a>}
+                    </div>
+                    <div className="project-card-bottom">
+                      <span className="project-stack-preview">{project.stack.slice(0,3).join(' · ')}</span>
+                      <button onClick={() => openProject(project)} className="project-arrow" aria-label={`Explore ${project.title}`}>↗</button>
+                    </div>
                   </div>
                 </div>
               </article>
@@ -238,10 +245,10 @@ function Projects() {
                 <span className="project-category">React · Frontend Development</span>
                 <h3>Developer Portfolio</h3>
                 <p>A personal portfolio presenting my development work, technical skills and selected projects.</p>
-                <div className="project-card-bottom">
-                  <span className="project-stack-preview">React · Vite · Tailwind</span>
-                  <a className="project-arrow" href="https://drive.google.com/file/d/1-R6c2n8A2uapetfjMirK_3xLR3saQYPF/view?usp=drive_link" target="_blank" rel="noreferrer" aria-label="Watch portfolio demo">↗</a>
-                </div>
+                <div className="project-card-actions">
+                <div className="project-card-links"><a href="https://github.com/mariakhan-dev/maria-portfolio" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+                <div className="project-card-bottom"><span className="project-stack-preview">React · Vite · Tailwind</span><a className="project-arrow" href="https://drive.google.com/file/d/1-R6c2n8A2uapetfjMirK_3xLR3saQYPF/view?usp=drive_link" target="_blank" rel="noreferrer" aria-label="Watch portfolio demo">↗</a></div>
+              </div>
               </div>
             </article>
           </div>
@@ -254,10 +261,10 @@ function Projects() {
           onClick={closeProject}
         >
           <div
-            className="min-h-screen bg-[#f8f6f1]"
+            className="min-h-screen bg-[#fffaf8] project-detail-shell"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="sticky top-0 z-50 border-b border-black/10 bg-[#f8f6f1]/95 backdrop-blur-xl">
+            <div className="sticky top-0 z-50 border-b border-black/10 bg-[#fffaf8]/95 backdrop-blur-xl project-detail-nav">
               <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-10">
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-[0.18em] text-orange-600 md:text-xs">
@@ -276,8 +283,8 @@ function Projects() {
               </div>
             </div>
 
-            <div className="mx-auto max-w-7xl px-6 py-10 lg:px-10 lg:py-14">
-              <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div className="mx-auto max-w-7xl px-6 py-10 lg:px-10 lg:py-14 project-detail-content">
+              <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center project-detail-hero">
                 <div>
                   <p className="text-sm font-black uppercase tracking-[0.18em] text-orange-600">
                     {selectedProject.subtitle}
@@ -342,7 +349,7 @@ function Projects() {
                   onClick={() =>
                     openImage(selectedProject.showcase, `${selectedProject.title} overview`)
                   }
-                  className="group relative cursor-zoom-in overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-xl"
+                  className="group relative cursor-zoom-in overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-xl project-detail-cover"
                 >
                   <img
                     src={selectedProject.showcase}
@@ -355,7 +362,7 @@ function Projects() {
                 </button>
               </div>
 
-              <div className="mt-16">
+              <div className="mt-16 project-detail-systems">
                 <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
                   <div>
                     <p className="text-sm font-black uppercase tracking-[0.18em] text-orange-600">
@@ -375,7 +382,7 @@ function Projects() {
                   {selectedProject.systems.map((system) => (
                     <section
                       key={system.name}
-                      className="overflow-hidden rounded-[2rem] border border-black/10 bg-white"
+                      className="overflow-hidden rounded-[2rem] border border-black/10 bg-white project-system-card"
                     >
                       <div className="grid lg:grid-cols-[0.75fr_1.25fr]">
                         <div className="border-b border-black/10 p-6 md:p-8 lg:border-b-0 lg:border-r">
@@ -458,7 +465,7 @@ function Projects() {
                 </div>
               </div>
 
-              <div className="mt-14 flex flex-col justify-between gap-7 rounded-[2rem] bg-neutral-950 p-8 text-white md:p-10 lg:flex-row lg:items-center">
+              <div className="mt-14 flex flex-col justify-between gap-7 rounded-[2rem] bg-neutral-950 p-8 text-white md:p-10 lg:flex-row lg:items-center project-tech-panel">
                 <div>
                   <p className="text-xs font-black uppercase tracking-[0.17em] text-orange-500">
                     Technology Stack
