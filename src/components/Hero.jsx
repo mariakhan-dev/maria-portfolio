@@ -1,99 +1,105 @@
-const tech = ['Laravel', 'React', 'JavaScript', 'PHP', 'MySQL', 'AI Integrations']
+const tech = ['Laravel', 'React', 'JavaScript', 'PHP', 'MySQL', 'REST APIs']
 
 function Hero() {
   return (
-    <section id="top" className="relative isolate overflow-hidden px-6 pb-20 pt-12 sm:pt-16 lg:px-10 lg:pb-28">
-      <div className="pointer-events-none absolute -right-40 top-0 -z-10 h-[34rem] w-[34rem] rounded-full bg-orange-200/40 blur-[110px]" />
-      <div className="pointer-events-none absolute -bottom-40 left-0 -z-10 h-[28rem] w-[28rem] rounded-full bg-amber-100/70 blur-[100px]" />
+    <section id="top" className="hero-shell relative isolate overflow-hidden px-6 pb-20 pt-16 sm:px-8 lg:px-10 lg:pb-24">
+      <div className="hero-grid absolute inset-0 -z-10" aria-hidden="true" />
+      <div className="hero-glow hero-glow-one" aria-hidden="true" />
+      <div className="hero-glow hero-glow-two" aria-hidden="true" />
 
-      <div className="mx-auto grid min-h-[calc(100vh-6rem)] max-w-7xl items-center gap-14 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16">
-        <div className="max-w-3xl">
-          <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-orange-200 bg-white/80 px-4 py-2 shadow-sm shadow-orange-950/[0.03]">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
-            </span>
-            <span className="text-[11px] font-extrabold uppercase tracking-[0.15em] text-neutral-700 sm:text-xs">
-              Available for select projects
-            </span>
+      <div className="mx-auto grid min-h-[calc(100vh-7rem)] max-w-7xl items-center gap-14 lg:grid-cols-[0.94fr_1.06fr] lg:gap-12">
+        <div className="relative z-10 max-w-2xl">
+          <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-cyan-300/20 bg-cyan-300/[0.07] px-4 py-2.5 text-xs font-semibold tracking-wide text-cyan-200">
+            <span className="h-2 w-2 rounded-full bg-cyan-300 shadow-[0_0_14px_rgba(103,232,249,.9)]" />
+            Open to opportunities & selected projects
           </div>
 
-          <p className="mb-5 text-xs font-extrabold uppercase tracking-[0.24em] text-orange-600 sm:text-sm">
-            Full-Stack Web Developer
+          <p className="mb-5 text-xs font-bold uppercase tracking-[0.28em] text-cyan-300 sm:text-sm">
+            Full-Stack Developer <span className="mx-2 text-slate-600">/</span> Product Builder
           </p>
 
-          <h1 className="max-w-4xl text-[clamp(3.2rem,7vw,6.4rem)] font-black leading-[0.94] tracking-[-0.075em] text-neutral-950">
-            I turn ideas into
-            <span className="block text-orange-600">digital products.</span>
+          <h1 className="max-w-3xl text-[clamp(3.6rem,7.2vw,6.7rem)] font-semibold leading-[0.94] tracking-[-0.075em] text-white">
+            I build digital
+            <span className="block text-gradient">products that work.</span>
           </h1>
 
-          <p className="mt-8 max-w-2xl text-base leading-8 text-neutral-600 sm:text-lg sm:leading-9">
-            I'm <strong className="font-bold text-neutral-950">Maria Khan</strong> — a developer building thoughtful web applications, useful business tools and connected digital experiences. I work across the frontend, backend, databases and integrations to bring a product together.
+          <p className="mt-8 max-w-xl text-base leading-8 text-slate-300 sm:text-lg">
+            I'm <strong className="font-semibold text-white">Maria Khan</strong>, a full-stack developer focused on building useful web applications — from polished interfaces to the backend systems and integrations behind them.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-3">
-            <a
-              href="#projects"
-              className="inline-flex items-center justify-center gap-3 rounded-full bg-neutral-950 px-7 py-4 text-sm font-bold text-white shadow-xl shadow-neutral-950/10 transition duration-300 hover:-translate-y-1 hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-600"
-            >
-              Explore my work <span aria-hidden="true">↗</span>
+            <a href="#projects" className="button-primary inline-flex items-center gap-3 rounded-xl px-6 py-4 text-sm font-bold text-slate-950 transition hover:-translate-y-1">
+              Explore selected work <span aria-hidden="true">↗</span>
             </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center rounded-full border border-neutral-300 bg-white/80 px-7 py-4 text-sm font-bold text-neutral-900 transition duration-300 hover:-translate-y-1 hover:border-neutral-950 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-600"
-            >
-              Start a conversation
+            <a href="#contact" className="button-secondary inline-flex items-center gap-3 rounded-xl px-6 py-4 text-sm font-semibold text-white transition hover:-translate-y-1">
+              Let's discuss a project <span aria-hidden="true">↗</span>
             </a>
           </div>
 
-          <div className="mt-12 border-t border-neutral-200 pt-7">
-            <p className="mb-4 text-[10px] font-extrabold uppercase tracking-[0.2em] text-neutral-400">
-              Tools I use to build
-            </p>
+          <div className="mt-12 border-t border-white/10 pt-7">
+            <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.22em] text-slate-500">Technologies I work with</p>
             <div className="flex flex-wrap gap-2">
               {tech.map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-neutral-200 bg-white/75 px-3.5 py-2 text-xs font-bold text-neutral-700 shadow-sm shadow-neutral-950/[0.02] sm:text-sm"
-                >
-                  {item}
-                </span>
+                <span key={item} className="rounded-lg border border-white/10 bg-white/[0.035] px-3 py-2 text-xs font-medium text-slate-300">{item}</span>
               ))}
             </div>
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[34rem] lg:ml-auto">
-          <div className="absolute -inset-4 rotate-3 rounded-[2.5rem] bg-orange-200/70 sm:-inset-5" />
-          <div className="relative overflow-hidden rounded-[2.2rem] border border-white/80 bg-neutral-200 shadow-[0_35px_90px_-35px_rgba(40,25,10,0.35)]">
-            <img
-              src="/images/maria-developer.png"
-              alt="Maria Khan, full-stack web developer"
-              fetchPriority="high"
-              className="h-[420px] w-full object-cover object-center sm:h-[540px]"
-            />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/25 to-transparent p-6 pt-24 sm:p-8 sm:pt-28">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-300">Design-minded. Engineering-focused.</p>
-              <p className="mt-2 text-2xl font-black tracking-tight text-white sm:text-3xl">Built with purpose.</p>
+        <div className="hero-visual relative mx-auto w-full max-w-[650px] lg:ml-auto">
+          <div className="editor-window overflow-hidden rounded-2xl border border-white/10 shadow-[0_35px_100px_-35px_rgba(0,0,0,.9)]">
+            <div className="flex items-center justify-between border-b border-white/10 bg-[#111a2a] px-5 py-4">
+              <div className="flex items-center gap-2" aria-label="Window controls">
+                <span className="h-2.5 w-2.5 rounded-full bg-rose-400/90" />
+                <span className="h-2.5 w-2.5 rounded-full bg-amber-300/90" />
+                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/90" />
+              </div>
+              <span className="font-mono text-[11px] text-slate-500">maria / portfolio</span>
+              <span className="text-xs text-cyan-300">● Live preview</span>
+            </div>
+
+            <div className="grid min-h-[390px] grid-cols-[54px_1fr] bg-[#080e19] sm:min-h-[450px] sm:grid-cols-[66px_1fr]">
+              <div className="border-r border-white/[0.06] py-6 text-center font-mono text-xs leading-[2.35rem] text-slate-700">01<br/>02<br/>03<br/>04<br/>05<br/>06<br/>07<br/>08<br/>09<br/>10</div>
+              <div className="overflow-hidden p-5 font-mono text-[11px] leading-[2.35rem] sm:p-7 sm:text-[13px]">
+                <p className="text-slate-500">// Turning ideas into working products</p>
+                <p><span className="code-purple">const</span> <span className="code-blue">developer</span> = {'{'}</p>
+                <p className="pl-5 text-slate-300">name: <span className="code-green">'Maria Khan'</span>,</p>
+                <p className="pl-5 text-slate-300">focus: <span className="code-green">'full-stack development'</span>,</p>
+                <p className="pl-5 text-slate-300">frontend: [<span className="code-green">'React'</span>, <span className="code-green">'JavaScript'</span>],</p>
+                <p className="pl-5 text-slate-300">backend: [<span className="code-green">'Laravel'</span>, <span className="code-green">'PHP'</span>],</p>
+                <p className="pl-5 text-slate-300">database: <span className="code-green">'MySQL'</span>,</p>
+                <p className="pl-5 text-slate-300">mindset: <span className="code-green">'build with purpose'</span></p>
+                <p>{'}'}</p>
+                <div className="my-5 h-px bg-white/[0.08]" />
+                <p className="text-slate-500">// A few things I've built</p>
+                <div className="mt-2 grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-xl border border-cyan-300/20 bg-cyan-300/[0.06] p-4">
+                    <span className="text-[10px] uppercase tracking-widest text-cyan-300">01 / Commerce</span>
+                    <p className="mt-2 font-sans text-base font-semibold text-white">NovaCart AI</p>
+                    <p className="font-sans text-xs leading-5 text-slate-400">E-commerce · AI · Payments</p>
+                  </div>
+                  <div className="rounded-xl border border-violet-300/20 bg-violet-300/[0.06] p-4">
+                    <span className="text-[10px] uppercase tracking-widest text-violet-300">02 / Education</span>
+                    <p className="mt-2 font-sans text-base font-semibold text-white">Smart Attendance</p>
+                    <p className="font-sans text-xs leading-5 text-slate-400">Web · Android · QR · GPS</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="absolute -bottom-7 -left-3 rounded-2xl border border-neutral-200 bg-white p-4 shadow-xl shadow-neutral-950/10 sm:-left-8 sm:p-5">
-            <p className="text-[10px] font-extrabold uppercase tracking-[0.17em] text-neutral-400">My approach</p>
-            <p className="mt-1 text-sm font-extrabold text-neutral-900 sm:text-base">From interface to database</p>
-            <p className="mt-1 text-xs text-neutral-500">One connected product experience</p>
+          <div className="floating-note absolute -bottom-7 -left-4 rounded-xl border border-white/10 bg-[#121d2e] px-5 py-4 shadow-2xl sm:-left-8">
+            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500">Development approach</p>
+            <p className="mt-1 text-sm font-semibold text-white">Thoughtful UI. Solid logic.</p>
           </div>
-
-          <a
-            href="https://github.com/mariakhan-dev"
-            target="_blank"
-            rel="noreferrer"
-            className="absolute -right-2 top-7 inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-3 text-xs font-extrabold text-neutral-800 shadow-lg transition hover:-translate-y-1 hover:text-orange-600 sm:-right-5 sm:top-10"
-            aria-label="Visit Maria Khan on GitHub"
-          >
-            <span aria-hidden="true">⌘</span> GitHub <span aria-hidden="true">↗</span>
+          <a href="https://github.com/mariakhan-dev" target="_blank" rel="noreferrer" className="absolute -right-2 -top-5 rounded-xl border border-white/10 bg-[#172337] px-4 py-3 text-xs font-semibold text-slate-200 shadow-xl transition hover:border-cyan-300/40 hover:text-cyan-200 sm:-right-5">
+            GitHub profile <span className="ml-2 text-cyan-300">↗</span>
           </a>
         </div>
+      </div>
+
+      <div className="mx-auto mt-16 flex max-w-7xl items-center justify-between border-t border-white/10 pt-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-600">
+        <span>Design / Develop / Deliver</span><span>Abbottabad, Pakistan · Working worldwide</span>
       </div>
     </section>
   )
