@@ -2,60 +2,20 @@ import { useState } from 'react'
 
 function MobileMenu() {
   const [open, setOpen] = useState(false)
+  const links = [['About', '#about'], ['Expertise', '#skills'], ['Work', '#projects'], ['Contact', '#contact']]
 
   return (
-    <div className="md:hidden">
-
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-xl"
-        aria-label="Toggle menu"
-      >
+    <div className="relative md:hidden">
+      <button onClick={() => setOpen(!open)} className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 text-lg text-white transition hover:border-cyan-300/40 hover:text-cyan-200" aria-label="Toggle menu" aria-expanded={open}>
         {open ? '✕' : '☰'}
       </button>
-
       {open && (
-        <div className="absolute top-20 left-0 right-0 bg-[#f8f6f1] border-b border-black/10 shadow-lg">
-          
-          <div className="px-6 py-6 space-y-4">
-
-            <a
-              href="#about"
-              onClick={() => setOpen(false)}
-              className="block font-semibold"
-            >
-              About
-            </a>
-
-            <a
-              href="#skills"
-              onClick={() => setOpen(false)}
-              className="block font-semibold"
-            >
-              Skills
-            </a>
-
-            <a
-              href="#projects"
-              onClick={() => setOpen(false)}
-              className="block font-semibold"
-            >
-              Projects
-            </a>
-
-            <a
-              href="#contact"
-              onClick={() => setOpen(false)}
-              className="block font-semibold"
-            >
-              Contact
-            </a>
-
-          </div>
-
+        <div className="absolute right-0 top-14 w-56 rounded-2xl border border-white/10 bg-[#101a2a] p-3 shadow-2xl">
+          {links.map(([label, href]) => (
+            <a key={label} href={href} onClick={() => setOpen(false)} className="block rounded-xl px-4 py-3 text-sm font-medium text-slate-300 transition hover:bg-white/[.06] hover:text-cyan-200">{label}</a>
+          ))}
         </div>
       )}
-
     </div>
   )
 }
