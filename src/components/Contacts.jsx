@@ -41,9 +41,8 @@ function Contact() {
           <h2>Have an idea?<br /><em>Let's make it real.</em></h2>
           <p className="contact-intro">Have a website, application or product in mind? Tell me a little about it. I'd love to hear what you're working on.</p>
           <div className="contact-details">
-            <a href="mailto:maria.khan.dev@gmail.com"><span>✉</span><div><small>EMAIL ME</small><strong>maria.khan.dev@gmail.com</strong></div></a>
-            <a href="https://github.com/mariakhan-dev" target="_blank" rel="noreferrer"><span>⌘</span><div><small>GITHUB</small><strong>github.com/mariakhan-dev</strong></div></a>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><span>in</span><div><small>LET'S CONNECT</small><strong>LinkedIn profile</strong></div></a>
+            <a href="https://github.com/mariakhan-dev" target="_blank" rel="noreferrer"><span>⌘</span><div><small>GITHUB</small><strong>github.com/mariakhan-dev ↗</strong></div></a>
+            <div className="contact-note"><span>✿</span><div><small>PROJECT ENQUIRIES</small><strong>Use the form and tell me about your idea.</strong></div></div>
           </div>
         </div>
         <div className="contact-form-card">
