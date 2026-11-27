@@ -2,7 +2,7 @@ const tech = ['Laravel', 'React', 'JavaScript', 'PHP', 'MySQL', 'AI Integrations
 
 function Hero() {
   return (
-    <section className="relative isolate overflow-hidden px-6 pb-20 pt-12 sm:pt-16 lg:px-10 lg:pb-28">
+    <section id="top" className="relative isolate overflow-hidden px-6 pb-20 pt-12 sm:pt-16 lg:px-10 lg:pb-28">
       <div className="pointer-events-none absolute -right-40 top-0 -z-10 h-[34rem] w-[34rem] rounded-full bg-orange-200/40 blur-[110px]" />
       <div className="pointer-events-none absolute -bottom-40 left-0 -z-10 h-[28rem] w-[28rem] rounded-full bg-amber-100/70 blur-[100px]" />
 
