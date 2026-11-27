@@ -24,3 +24,39 @@
 #root .fixed.inset-0[class*="z-\\[100\\]"] section{border-color:var(--line)!important;border-radius:20px!important}
 #root .fixed.inset-0[class*="z-\\[100\\]"] h2,#root .fixed.inset-0[class*="z-\\[100\\]"] h3,#root .fixed.inset-0[class*="z-\\[100\\]"] h4{font-family:var(--serif)!important;letter-spacing:-.035em}
 #root .fixed.inset-0[class*="z-\\[100\\]"] button.rounded-full{transition:transform .2s,background .2s}
+
+/* Featured work: compact editorial cards, matching the supplied reference layout. */
+#projects{padding:78px 5% 92px!important;background:#fffaf8!important}
+#projects>.relative.mx-auto{max-width:1180px!important}
+#projects>.relative.mx-auto>.mb-14{margin-bottom:30px!important;grid-template-columns:1fr auto!important;align-items:end!important;gap:24px!important}
+#projects>.relative.mx-auto>.mb-14 h2{font-family:var(--serif)!important;font-size:clamp(38px,4vw,52px)!important;line-height:1.05!important;font-weight:600!important;letter-spacing:-.045em!important}
+#projects>.relative.mx-auto>.mb-14>div>p{font-size:9px!important;letter-spacing:.2em!important;color:var(--rose-dark)!important;margin-bottom:10px!important}
+#projects>.relative.mx-auto>.mb-14>p{max-width:300px!important;font-size:13px!important;line-height:1.7!important;color:#806f74!important}
+.project-card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+.project-card{min-width:0;overflow:hidden;border:1px solid #eddfdf;border-radius:17px;background:#fffdfc;box-shadow:0 7px 22px rgba(83,53,61,.055);transition:transform .25s ease,box-shadow .25s ease}
+.project-card:hover{transform:translateY(-5px);box-shadow:0 17px 35px rgba(83,53,61,.12)}
+.project-card-image{position:relative;display:block;width:100%;height:185px;overflow:hidden;background:#f0e3e4;text-align:left;cursor:zoom-in}
+.project-card-image img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .5s ease}
+.project-card:hover .project-card-image img{transform:scale(1.045)}
+.project-image-index{position:absolute;top:12px;left:12px;padding:7px 10px;border-radius:99px;background:rgba(255,250,248,.93);color:#79505c;font-size:8px;font-weight:700;letter-spacing:.13em}
+.project-image-zoom{position:absolute;right:11px;bottom:11px;padding:7px 10px;border-radius:99px;background:rgba(48,35,42,.78);color:white;font-size:9px;font-weight:600;opacity:0;transition:opacity .2s}
+.project-card-image:hover .project-image-zoom{opacity:1}
+.project-card-body{padding:17px 18px 16px;display:flex;flex-direction:column;min-height:174px}
+.project-category{font-size:8px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#a15e70;line-height:1.5}
+.project-card-body h3{font-family:var(--serif);font-size:21px;font-weight:600;letter-spacing:-.025em;line-height:1.2;margin:7px 0 7px;color:#30232a}
+.project-card-body>p{font-size:11px;line-height:1.65;color:#78686d;margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.project-card-bottom{margin-top:auto;padding-top:13px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.project-stack-preview{font-size:9px;font-weight:600;color:#9a858a;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.project-arrow{display:grid;place-items:center;flex:0 0 30px;width:30px;height:30px;border:0;border-radius:50%;background:#f6e6e8;color:#8c5060;font-size:16px;font-weight:700;cursor:pointer;transition:background .2s,color .2s,transform .2s}
+.project-arrow:hover{background:#87485a;color:white;transform:translateX(2px)}
+.portfolio-project-art{height:185px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 80% 15%,#f1d4d9 0,transparent 35%),linear-gradient(135deg,#f8eded,#ead5da)}
+.portfolio-art-kicker{position:absolute;left:13px;top:14px;color:#875968;font-size:8px;font-weight:700;letter-spacing:.14em}
+.portfolio-art-monogram{font-family:var(--serif);font-style:italic;font-size:104px;line-height:1;color:#a66b7b;text-shadow:0 8px 20px rgba(111,65,78,.12)}
+.portfolio-art-monogram span{color:#633b49}
+.portfolio-art-window{position:absolute;right:12px;bottom:13px;width:56%;padding:11px 12px;border:1px solid rgba(255,255,255,.85);border-radius:9px;background:rgba(255,252,250,.9);box-shadow:0 8px 24px rgba(81,48,59,.12);display:grid;grid-template-columns:repeat(3,5px) 1fr;align-items:center;gap:5px}
+.portfolio-art-window i{width:5px;height:5px;border-radius:50%;background:#c68c99}
+.portfolio-art-window b{font-size:8px;color:#513a42;margin-left:4px}
+.portfolio-art-window span{grid-column:1/-1;font-size:8px;color:#9a737e;padding-top:7px}
+.portfolio-art-caption{position:absolute;left:13px;bottom:15px;font-size:6px;font-weight:700;letter-spacing:.14em;color:#966b77}
+@media(max-width:900px){.project-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#projects>.relative.mx-auto>.mb-14{grid-template-columns:1fr!important}#projects>.relative.mx-auto>.mb-14>p{max-width:500px!important}}
+@media(max-width:580px){#projects{padding:65px 6% 75px!important}.project-card-grid{grid-template-columns:1fr;gap:15px}.project-card-image,.portfolio-project-art{height:205px}.project-card-body{min-height:160px}.project-card-body h3{font-size:23px}}
