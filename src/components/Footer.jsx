@@ -1,70 +1,25 @@
 function Footer() {
   return (
-    <footer className="bg-neutral-950 text-white px-6 lg:px-10">
-      <div className="max-w-7xl mx-auto">
-
-        {/* Main footer */}
-        <div className="py-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
-
-          {/* Brand */}
+    <footer className="border-t border-white/[.08] bg-[#050912] px-6 text-white lg:px-10">
+      <div className="mx-auto max-w-7xl">
+        <div className="flex flex-col justify-between gap-8 py-10 md:flex-row md:items-center">
           <div>
-            <a
-              href="#"
-              className="text-2xl font-black tracking-[-0.04em]"
-            >
-              Maria<span className="text-orange-500">.</span>
-            </a>
-
-            <p className="text-gray-500 text-sm mt-2">
-              Full-Stack Web Developer
-            </p>
+            <a href="#top" className="text-2xl font-bold tracking-[-.05em]">maria<span className="text-cyan-300">.</span></a>
+            <p className="mt-2 text-sm text-slate-500">Full-Stack Developer · Product Builder</p>
           </div>
-
-          {/* Navigation */}
-          <div className="flex flex-wrap items-center gap-6 text-sm font-semibold text-gray-400">
-            <a href="#about" className="hover:text-orange-500 transition">
-              About
-            </a>
-
-            <a href="#skills" className="hover:text-orange-500 transition">
-              Skills
-            </a>
-
-            <a href="#projects" className="hover:text-orange-500 transition">
-              Projects
-            </a>
-
-            <a href="#contact" className="hover:text-orange-500 transition">
-              Contact
-            </a>
+          <div className="flex flex-wrap items-center gap-6 text-sm font-medium text-slate-400">
+            <a href="#about" className="transition hover:text-cyan-300">About</a>
+            <a href="#skills" className="transition hover:text-cyan-300">Expertise</a>
+            <a href="#projects" className="transition hover:text-cyan-300">Projects</a>
+            <a href="#contact" className="transition hover:text-cyan-300">Contact</a>
+            <a href="https://github.com/mariakhan-dev" target="_blank" rel="noreferrer" className="transition hover:text-cyan-300">GitHub ↗</a>
           </div>
-
-          {/* Back to top */}
-          <a
-            href="#"
-            className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center hover:bg-orange-600 hover:border-orange-600 transition"
-            aria-label="Back to top"
-          >
-            ↑
-          </a>
-
+          <a href="#top" className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 text-lg text-slate-300 transition hover:border-cyan-300/40 hover:text-cyan-200" aria-label="Back to top">↑</a>
         </div>
-
-        {/* Bottom */}
-        <div className="border-t border-white/10 py-5 flex flex-col sm:flex-row justify-between gap-3 text-xs text-gray-600">
-
-          <p>
-            © {new Date().getFullYear()} Maria Khan. All rights reserved.
-          </p>
-
-          <p>
-            Designed & built with React
-            <span className="text-orange-500"> • </span>
-            Building for the web.
-          </p>
-
+        <div className="flex flex-col justify-between gap-3 border-t border-white/[.08] py-5 text-xs text-slate-600 sm:flex-row">
+          <p>© {new Date().getFullYear()} Maria Khan. All rights reserved.</p>
+          <p>Designed & built with React <span className="text-cyan-300">·</span> Building for the web.</p>
         </div>
-
       </div>
     </footer>
   )
