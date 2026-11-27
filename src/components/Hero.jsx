@@ -32,7 +32,7 @@ function Hero() {
           <div className="signature-mark">Maria Khan<span>Full-Stack Developer</span></div>
         </div>
       </div>
-      <div className="hero-bottomline"><span>DESIGNING WITH INTENTION</span><span>DEVELOPING WITH PURPOSE</span><span>PAKISTAN · WORKING WORLDWIDE</span></div>
+      <div className="hero-bottomline"><span>DESIGNING WITH INTENTION</span><span>DEVELOPING WITH PURPOSE</span><span>BASED IN PAKISTAN</span></div>
     </section>
   )
 }
