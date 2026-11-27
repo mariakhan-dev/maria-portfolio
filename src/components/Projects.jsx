@@ -378,89 +378,32 @@ function Projects() {
                   </p>
                 </div>
 
-                <div className="space-y-10">
+                <div className="project-systems-grid">
                   {selectedProject.systems.map((system) => (
-                    <section
-                      key={system.name}
-                      className="overflow-hidden rounded-[2rem] border border-black/10 bg-white project-system-card"
-                    >
-                      <div className="grid lg:grid-cols-[0.75fr_1.25fr]">
-                        <div className="border-b border-black/10 p-6 md:p-8 lg:border-b-0 lg:border-r">
-                          <p className="text-xs font-black uppercase tracking-[0.17em] text-orange-600">
-                            {system.number} — {system.type}
-                          </p>
-
-                          <h4 className="mt-2 text-2xl font-black md:text-3xl">{system.name}</h4>
-
-                          <p className="mt-4 text-sm leading-6 text-gray-600">
-                            {system.description}
-                          </p>
-
-                          <div className="mt-6 flex flex-wrap gap-2">
-                            {system.features.slice(0, 5).map((feature) => (
-                              <span
-                                key={feature}
-                                className="rounded-full bg-[#f8f6f1] px-3 py-2 text-xs font-bold"
-                              >
-                                {feature}
-                              </span>
-                            ))}
-                          </div>
-
-                          <button
-                            onClick={() => openImage(system.showcase, `${system.name} showcase`)}
-                            className="group relative mt-7 block w-full cursor-zoom-in overflow-hidden rounded-2xl border border-black/10 bg-[#f4f2ed]"
-                          >
-                            <img
-                              src={system.showcase}
-                              alt={`${system.name} showcase`}
-                              className="h-auto max-h-[300px] w-full object-contain"
-                            />
-                            <div className="absolute bottom-3 right-3 rounded-full bg-black/80 px-3 py-1.5 text-[11px] font-bold text-white opacity-0 transition group-hover:opacity-100">
-                              Enlarge ↗
-                            </div>
-                          </button>
-                        </div>
-
-                        <div className="p-6 md:p-8">
-                          <div className="mb-5 flex items-center justify-between gap-4">
-                            <p className="text-xs font-black uppercase tracking-[0.17em] text-gray-400">
-                              Real Interface Screens
-                            </p>
-                            <p className="hidden text-xs text-gray-400 sm:block">Click to enlarge</p>
-                          </div>
-
-                          <div
-                            className={`grid gap-4 ${
-                              system.screenshots.length === 1
-                                ? 'grid-cols-1'
-                                : 'sm:grid-cols-2'
-                            }`}
-                          >
-                            {system.screenshots.map((screen) => (
-                              <button
-                                key={screen.image}
-                                onClick={() => openImage(screen.image, screen.label)}
-                                className="group cursor-zoom-in overflow-hidden rounded-2xl border border-black/10 bg-[#f7f7f5] text-left transition hover:-translate-y-0.5 hover:shadow-lg"
-                              >
-                                <div className="flex min-h-[220px] items-center justify-center overflow-hidden p-3">
-                                  <img
-                                    src={screen.image}
-                                    alt={screen.label}
-                                    className="max-h-[360px] w-full object-contain transition duration-500 group-hover:scale-[1.015]"
-                                  />
-                                </div>
-
-                                <div className="flex items-center justify-between border-t border-black/10 bg-white px-4 py-3">
-                                  <p className="text-sm font-bold">{screen.label}</p>
-                                  <span className="text-xs font-black text-orange-600">↗</span>
-                                </div>
-                              </button>
-                            ))}
-                          </div>
-                        </div>
+                    <article key={system.name} className="project-system-tile">
+                      <div className="project-system-tile-visual">
+                        <img src={system.showcase} alt={system.name} />
+                        <span>{system.number} / {system.type}</span>
                       </div>
-                    </section>
+                      <div className="project-system-tile-body">
+                        <h4>{system.name}</h4>
+                        <p>{system.description}</p>
+                        <div className="project-system-feature-list">
+                          {system.features.map((feature) => <span key={feature}>{feature}</span>)}
+                        </div>
+                        <div className="project-system-screens">
+                          {system.screenshots.map((screen) => (
+                            <button key={screen.image} onClick={() => openImage(screen.image, screen.label)} aria-label={`View ${screen.label}`}>
+                              <img src={screen.image} alt={screen.label} />
+                              <span>{screen.label} ↗</span>
+                            </button>
+                          ))}
+                        </div>
+                        <button className="project-system-view" onClick={() => openImage(system.showcase, `${system.name} showcase`)}>
+                          View interface <span>↗</span>
+                        </button>
+                      </div>
+                    </article>
                   ))}
                 </div>
               </div>
