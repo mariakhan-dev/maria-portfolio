@@ -204,157 +204,53 @@ function Projects() {
             </p>
           </div>
 
-          <div className="space-y-10">
+          <div className="project-card-grid">
             {projects.map((project) => (
-              <article
-                key={project.id}
-                className="group overflow-hidden rounded-[2.2rem] border border-black/10 bg-[#f8f6f1] transition duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/10"
-              >
+              <article key={project.id} className="project-card group">
                 <button
                   onClick={() => openImage(project.showcase, `${project.title} overview`)}
-                  className="relative block w-full cursor-zoom-in overflow-hidden bg-[#ebe8e1]"
+                  className="project-card-image"
                   aria-label={`Open ${project.title} image`}
                 >
-                  <img
-                    src={project.showcase}
-                    alt={`${project.title} showcase`}
-                    className="h-auto max-h-[620px] w-full object-contain transition duration-700 group-hover:scale-[1.01]"
-                  />
-
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
-
-                  <div className="absolute left-5 top-5 rounded-full bg-white/95 px-4 py-2 shadow-lg backdrop-blur-xl md:left-7 md:top-7">
-                    <span className="text-xs font-black uppercase tracking-[0.14em]">
-                      {project.number} — {project.label}
-                    </span>
-                  </div>
-
-                  <div className="absolute bottom-5 right-5 rounded-full bg-black/80 px-4 py-2 text-xs font-bold text-white backdrop-blur-md">
-                    Click to enlarge ↗
-                  </div>
+                  <img src={project.showcase} alt={`${project.title} showcase`} />
+                  <span className="project-image-index">{project.number} / SELECTED WORK</span>
+                  <span className="project-image-zoom">View preview ↗</span>
                 </button>
-
-                <div className="p-7 md:p-9 lg:p-10">
-                  <div className="grid gap-8 lg:grid-cols-[1fr_0.8fr]">
-                    <div>
-                      <p className="text-xs font-black uppercase tracking-[0.17em] text-orange-600">
-                        {project.subtitle}
-                      </p>
-
-                      <h3 className="mt-3 text-3xl font-black tracking-[-0.04em] md:text-4xl lg:text-5xl">
-                        {project.title}
-                      </h3>
-
-                      <p className="mt-5 max-w-2xl leading-7 text-gray-600">
-                        {project.description}
-                      </p>
+                <div className="project-card-body">
+                  <span className="project-category">{project.subtitle}</span>
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                  <div className="project-card-actions">
+                    <div className="project-card-links">
+                      {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noreferrer" onClick={(event) => event.stopPropagation()}>Live Demo ↗</a>}
+                      {project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noreferrer" onClick={(event) => event.stopPropagation()}>Watch Demo ▶</a>}
+                      {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noreferrer" onClick={(event) => event.stopPropagation()}>GitHub ↗</a>}
                     </div>
-
-                    <div>
-                      <p className="mb-4 text-xs font-black uppercase tracking-[0.16em] text-gray-400">
-                        Product Areas
-                      </p>
-
-                      <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
-                        {project.systems.map((system) => (
-                          <div
-                            key={system.name}
-                            className="flex items-center gap-3 rounded-2xl border border-black/10 bg-white px-4 py-3"
-                          >
-                            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-orange-100 text-xs font-black text-orange-600">
-                              {system.number}
-                            </span>
-
-                            <div className="min-w-0">
-                              <p className="truncate text-sm font-bold">{system.name}</p>
-                              <p className="truncate text-xs text-gray-400">{system.type}</p>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="mt-8 flex flex-col gap-6 border-t border-black/10 pt-7 lg:flex-row lg:items-center lg:justify-between">
-                    <div className="flex flex-wrap gap-2">
-                    
-                    
-                      {project.stack.map((tech) => (
-                        <span
-                          key={tech}
-                          className="rounded-full border border-black/10 bg-white px-3 py-2 text-xs font-bold"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="flex flex-wrap gap-3">
-                      {project.liveUrl && (
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="rounded-full border border-black/10 bg-white px-5 py-3 text-sm font-black transition hover:border-orange-600 hover:text-orange-600"
-                        >
-                          Live Demo ↗
-                        </a>
-                      )}
-                   {project.demoUrl && (
-  <a
-    href={project.demoUrl}
-    target="_blank"
-    rel="noreferrer"
-    className="rounded-full bg-orange-600 px-5 py-3 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-orange-700"
-  >
-    Watch Demo ▶
-  </a>
-)}
-                      <button
-                        onClick={() => openProject(project)}
-                        className="cursor-pointer rounded-full bg-neutral-950 px-6 py-3 text-sm font-black text-white transition duration-300 hover:-translate-y-0.5 hover:bg-orange-600"
-                      >
-                        Explore Project →
-                      </button>
+                    <div className="project-card-bottom">
+                      <span className="project-stack-preview">{project.stack.slice(0,3).join(' · ')}</span>
+                      <button onClick={() => openProject(project)} className="project-arrow" aria-label={`Explore ${project.title}`}>↗</button>
                     </div>
                   </div>
                 </div>
               </article>
             ))}
-          </div>
-
-          <div className="mt-10 flex flex-col justify-between gap-6 rounded-[2rem] bg-neutral-950 px-7 py-6 text-white md:flex-row md:items-center lg:px-9">
-            <div>
-              <p className="text-xs font-black uppercase tracking-[0.17em] text-orange-500">
-                03 — React Project
-              </p>
-
-              <h3 className="mt-1 text-2xl font-black">Maria Developer Portfolio</h3>
-
-              <p className="mt-2 text-sm text-gray-400">
-                The site you are exploring — built with React, Vite and Tailwind CSS.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              {['React', 'Vite', 'Tailwind'].map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-bold"
-                >
-                  {tech}
-                </span>
-                
-              ))}
-              <a
-  href="https://drive.google.com/file/d/1-R6c2n8A2uapetfjMirK_3xLR3saQYPF/view?usp=drive_link"
-  target="_blank"
-  rel="noreferrer"
-  className="rounded-full bg-orange-600 px-5 py-2 text-xs font-black text-white transition hover:bg-orange-500"
->
-  Watch Demo ▶
-</a>
-            </div>
+            <article className="project-card portfolio-project-card">
+              <div className="portfolio-project-art" aria-label="Portfolio built with React and Tailwind">
+                <span className="portfolio-art-kicker">03 / PERSONAL PROJECT</span>
+                <div className="portfolio-art-monogram">M<span>.</span></div>
+                <div className="portfolio-art-window"><i/><i/><i/><b>maria-portfolio</b><span>React&nbsp; / &nbsp;Vite&nbsp; / &nbsp;Tailwind</span></div>
+                <span className="portfolio-art-caption">DESIGNED & DEVELOPED BY MARIA KHAN</span>
+              </div>
+              <div className="project-card-body">
+                <span className="project-category">React · Frontend Development</span>
+                <h3>Developer Portfolio</h3>
+                <p>A personal portfolio presenting my development work, technical skills and selected projects.</p>
+                <div className="project-card-actions">
+                <div className="project-card-links"><a href="https://github.com/mariakhan-dev/maria-portfolio" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+                <div className="project-card-bottom"><span className="project-stack-preview">React · Vite · Tailwind</span><a className="project-arrow" href="https://drive.google.com/file/d/1-R6c2n8A2uapetfjMirK_3xLR3saQYPF/view?usp=drive_link" target="_blank" rel="noreferrer" aria-label="Watch portfolio demo">↗</a></div>
+              </div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -365,10 +261,10 @@ function Projects() {
           onClick={closeProject}
         >
           <div
-            className="min-h-screen bg-[#f8f6f1]"
+            className="min-h-screen bg-[#fffaf8] project-detail-shell"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="sticky top-0 z-50 border-b border-black/10 bg-[#f8f6f1]/95 backdrop-blur-xl">
+            <div className="sticky top-0 z-50 border-b border-black/10 bg-[#fffaf8]/95 backdrop-blur-xl project-detail-nav">
               <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-10">
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-[0.18em] text-orange-600 md:text-xs">
@@ -387,8 +283,8 @@ function Projects() {
               </div>
             </div>
 
-            <div className="mx-auto max-w-7xl px-6 py-10 lg:px-10 lg:py-14">
-              <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div className="mx-auto max-w-7xl px-6 py-10 lg:px-10 lg:py-14 project-detail-content">
+              <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center project-detail-hero">
                 <div>
                   <p className="text-sm font-black uppercase tracking-[0.18em] text-orange-600">
                     {selectedProject.subtitle}
@@ -453,7 +349,7 @@ function Projects() {
                   onClick={() =>
                     openImage(selectedProject.showcase, `${selectedProject.title} overview`)
                   }
-                  className="group relative cursor-zoom-in overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-xl"
+                  className="group relative cursor-zoom-in overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-xl project-detail-cover"
                 >
                   <img
                     src={selectedProject.showcase}
@@ -466,7 +362,7 @@ function Projects() {
                 </button>
               </div>
 
-              <div className="mt-16">
+              <div className="mt-16 project-detail-systems">
                 <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
                   <div>
                     <p className="text-sm font-black uppercase tracking-[0.18em] text-orange-600">
@@ -482,94 +378,37 @@ function Projects() {
                   </p>
                 </div>
 
-                <div className="space-y-10">
+                <div className="project-systems-grid">
                   {selectedProject.systems.map((system) => (
-                    <section
-                      key={system.name}
-                      className="overflow-hidden rounded-[2rem] border border-black/10 bg-white"
-                    >
-                      <div className="grid lg:grid-cols-[0.75fr_1.25fr]">
-                        <div className="border-b border-black/10 p-6 md:p-8 lg:border-b-0 lg:border-r">
-                          <p className="text-xs font-black uppercase tracking-[0.17em] text-orange-600">
-                            {system.number} — {system.type}
-                          </p>
-
-                          <h4 className="mt-2 text-2xl font-black md:text-3xl">{system.name}</h4>
-
-                          <p className="mt-4 text-sm leading-6 text-gray-600">
-                            {system.description}
-                          </p>
-
-                          <div className="mt-6 flex flex-wrap gap-2">
-                            {system.features.slice(0, 5).map((feature) => (
-                              <span
-                                key={feature}
-                                className="rounded-full bg-[#f8f6f1] px-3 py-2 text-xs font-bold"
-                              >
-                                {feature}
-                              </span>
-                            ))}
-                          </div>
-
-                          <button
-                            onClick={() => openImage(system.showcase, `${system.name} showcase`)}
-                            className="group relative mt-7 block w-full cursor-zoom-in overflow-hidden rounded-2xl border border-black/10 bg-[#f4f2ed]"
-                          >
-                            <img
-                              src={system.showcase}
-                              alt={`${system.name} showcase`}
-                              className="h-auto max-h-[300px] w-full object-contain"
-                            />
-                            <div className="absolute bottom-3 right-3 rounded-full bg-black/80 px-3 py-1.5 text-[11px] font-bold text-white opacity-0 transition group-hover:opacity-100">
-                              Enlarge ↗
-                            </div>
-                          </button>
-                        </div>
-
-                        <div className="p-6 md:p-8">
-                          <div className="mb-5 flex items-center justify-between gap-4">
-                            <p className="text-xs font-black uppercase tracking-[0.17em] text-gray-400">
-                              Real Interface Screens
-                            </p>
-                            <p className="hidden text-xs text-gray-400 sm:block">Click to enlarge</p>
-                          </div>
-
-                          <div
-                            className={`grid gap-4 ${
-                              system.screenshots.length === 1
-                                ? 'grid-cols-1'
-                                : 'sm:grid-cols-2'
-                            }`}
-                          >
-                            {system.screenshots.map((screen) => (
-                              <button
-                                key={screen.image}
-                                onClick={() => openImage(screen.image, screen.label)}
-                                className="group cursor-zoom-in overflow-hidden rounded-2xl border border-black/10 bg-[#f7f7f5] text-left transition hover:-translate-y-0.5 hover:shadow-lg"
-                              >
-                                <div className="flex min-h-[220px] items-center justify-center overflow-hidden p-3">
-                                  <img
-                                    src={screen.image}
-                                    alt={screen.label}
-                                    className="max-h-[360px] w-full object-contain transition duration-500 group-hover:scale-[1.015]"
-                                  />
-                                </div>
-
-                                <div className="flex items-center justify-between border-t border-black/10 bg-white px-4 py-3">
-                                  <p className="text-sm font-bold">{screen.label}</p>
-                                  <span className="text-xs font-black text-orange-600">↗</span>
-                                </div>
-                              </button>
-                            ))}
-                          </div>
-                        </div>
+                    <article key={system.name} className="project-system-tile">
+                      <div className="project-system-tile-visual">
+                        <img src={system.showcase} alt={system.name} />
+                        <span>{system.number} / {system.type}</span>
                       </div>
-                    </section>
+                      <div className="project-system-tile-body">
+                        <h4>{system.name}</h4>
+                        <p>{system.description}</p>
+                        <div className="project-system-feature-list">
+                          {system.features.map((feature) => <span key={feature}>{feature}</span>)}
+                        </div>
+                        <div className="project-system-screens">
+                          {system.screenshots.map((screen) => (
+                            <button key={screen.image} onClick={() => openImage(screen.image, screen.label)} aria-label={`View ${screen.label}`}>
+                              <img src={screen.image} alt={screen.label} />
+                              <span>{screen.label} ↗</span>
+                            </button>
+                          ))}
+                        </div>
+                        <button className="project-system-view" onClick={() => openImage(system.showcase, `${system.name} showcase`)}>
+                          View interface <span>↗</span>
+                        </button>
+                      </div>
+                    </article>
                   ))}
                 </div>
               </div>
 
-              <div className="mt-14 flex flex-col justify-between gap-7 rounded-[2rem] bg-neutral-950 p-8 text-white md:p-10 lg:flex-row lg:items-center">
+              <div className="mt-14 flex flex-col justify-between gap-7 rounded-[2rem] bg-neutral-950 p-8 text-white md:p-10 lg:flex-row lg:items-center project-tech-panel">
                 <div>
                   <p className="text-xs font-black uppercase tracking-[0.17em] text-orange-500">
                     Technology Stack
