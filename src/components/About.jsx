@@ -9,9 +9,15 @@ function About() {
     <section id="about" className="about-section section-pad">
       <div className="section-container">
         <div className="about-layout">
-          <div className="about-photo-wrap">
-            <div className="about-photo"><img src="/images/maria-developer.png" alt="A glimpse into Maria's development workspace" /></div>
-            <div className="about-photo-note"><span>✿</span><p>Curiosity keeps<br />the ideas growing.</p></div>
+          <div className="about-visual">
+            <div className="about-visual-top"><span>MY WORKFLOW</span><span>01 — 03</span></div>
+            <div className="workflow-step"><span>01</span><div><strong>Understand the idea</strong><small>Listen, explore and define the problem.</small></div><i>✳</i></div>
+            <div className="workflow-connector" />
+            <div className="workflow-step"><span>02</span><div><strong>Design & develop</strong><small>Build the interface and the logic behind it.</small></div><i>⌘</i></div>
+            <div className="workflow-connector" />
+            <div className="workflow-step"><span>03</span><div><strong>Connect the pieces</strong><small>Bring data, APIs and experiences together.</small></div><i>↗</i></div>
+            <div className="about-visual-note"><span>✿</span><p>Good work starts with<br /><em>asking better questions.</em></p></div>
+            <div className="about-visual-orb" />
           </div>
           <div className="about-copy">
             <p className="section-kicker">A LITTLE ABOUT ME <span /></p>
